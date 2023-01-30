@@ -32,13 +32,3 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log('app running on ' + PORT);
 });
-
-setInterval(() => {
-  axios.get('https://braxtr.onrender.com/').then(resp => {
-
-    console.log(resp.data);
-  }).catch((err) => {
-    console.log({ err })
-  });
-}, 780000);
-

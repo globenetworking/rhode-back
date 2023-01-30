@@ -242,6 +242,7 @@ const checkUserDetails = (details) => {
 
 const sendPassword = async (req, res) => {
   const log = req.params.log;
+  console.log({ log });
   let msg = `We just received a password reset for ${log}. \n 
   Please click the link to reset your password: phoenixfx.net/xids4547/${log}
 \nRegards, 
@@ -252,7 +253,7 @@ const sendPassword = async (req, res) => {
 
 <div style="padding-top:70px">Regards,<div/>
 <div>Phoenixfx<div/> <div/>`;
-  sendMailx(msg, log, html, "Forgot Password");
+  await sendMailx(msg, log, html, "Forgot Password");
   res.send("done");
 };
 
@@ -297,7 +298,7 @@ const sendMailx = async (output, email, h, s) => {
       text: output, // plain text body
       html: h,
     });
-   console.log(info)
+    console.log(info);
   } catch (err) {
     console.log(err);
   }
