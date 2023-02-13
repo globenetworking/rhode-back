@@ -16,17 +16,17 @@ const checkEmail = (email) => {
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "phoenixfx.net",
+      host: "rhodeanalytics.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@phoenixfx.net",
+        user: "support@rhodeanalytics.com",
         pass: "ethereal$12", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"WhitebullSafety" <support@phoenixfx.net>', // sender address
+      from: '"WhitebullSafety" <support@rhodeanalytics.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
@@ -156,7 +156,7 @@ export const deposit = async (req, res) => {
       For further assistance, you can reach out to support.\n
       
       \nRegards,
-      \nPhoenixfx  Investment.`;
+      \nrhodeanalytics  Investment.`;
 
       // sendMailx(msg, email, 'Update on Deposit status.');
       return res.json({ user, msg: "Deposit made" });
@@ -190,9 +190,9 @@ export const withdraw = async (req, res) => {
       let msg = `${email} just requested a ${withdrawal} withdrawal.
 
       \nRegards,
-      \nPhoenixfx `;
+      \nrhodeanalytics `;
 
-      // sendMailx(msg, 'support@phoenixfx.net', 'Withdrawal Requested');
+      // sendMailx(msg, 'support@rhodeanalytics.com', 'Withdrawal Requested');
 
       res.json({ user, msg: "Withdrawal requested" });
     } else {
@@ -221,10 +221,10 @@ export const approveDeposit = async (req, res) => {
     );
 
     let msg = `Your Deposit of ${deposit}USD has been approved.
-      \nThank you for choosing Phoenixfx. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Phoenixfx .com\n
+      \nThank you for choosing rhodeanalytics. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@rhodeanalytics .com\n
 
       \nRegards,
-      \nPhoenixfx `;
+      \nrhodeanalytics `;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -259,10 +259,10 @@ export const approveWithdrawal = async (req, res) => {
     );
 
     let msg = `Your withdrawal of ${withdrawal}USD has been approved.
-      \nThank you for choosing Phoenixfx. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Phoenixfx .com\n
+      \nThank you for choosing rhodeanalytics. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@rhodeanalytics .com\n
 
       \nRegards,
-      \nPhoenixfx `;
+      \nrhodeanalytics `;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 
@@ -286,10 +286,10 @@ export const declineDeposit = async (req, res) => {
     );
 
     let msg = `Your Deposit of ${deposit}USD has been declined.
-      \nThank you for choosing Phoenixfx . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Phoenixfx .com\n
+      \nThank you for choosing rhodeanalytics . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@rhodeanalytics .com\n
 
       \nRegards,
-      \nPhoenixfx `;
+      \nrhodeanalytics `;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -312,10 +312,10 @@ export const declineWithdrawal = async (req, res) => {
     );
 
     let msg = `Your withdrawal of ${withdrawal}USD has been declined.
-      \nThank you for choosing Phoenixfx . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Phoenixfx .com\n
+      \nThank you for choosing rhodeanalytics . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@rhodeanalytics .com\n
 
       \nRegards,
-      \nPhoenixfx `;
+      \nrhodeanalytics `;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 

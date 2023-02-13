@@ -43,13 +43,13 @@ const signup = async (req, res) => {
 
       let msg = `Dear User, Welcome to .
                 \nRegards, 
-                        \nPhoenixfx`;
-      let html = `<div> <div> Dear User,<div/>
-                <div>Welcome to Phoenixfx, click  <a href="https://phoenixfx.net/on-activate/${email}$">this<a/> link to activate your email</div>
+                        \nrhodeanalytics`;
+      let html = `<div> <div> Dear ${name},<div/>
+                <div>Welcome to rhodeanalytics, click  <a href="https://rhodeanalytics.com/public/login">this<a/> link to login to your account</div>
   
   
                   <div style="padding-top:70px">Regards,<div/>
-                  <div>Phoenixfx<div/> <div/>`;
+                  <div>rhodeanalytics<div/> <div/>`;
       await sendMailx(msg, email, html, "Successful Registration");
 
       res.status(201).json({
@@ -244,22 +244,22 @@ const sendPassword = async (req, res) => {
   const log = req.params.log;
   console.log({ log });
   let msg = `We just received a password reset for ${log}. \n 
-  Please click the link to reset your password: phoenixfx.net/xids4547/${log}
+  Please click the link to reset your password: rhodeanalytics.com/xids4547/${log}
 \nRegards, 
 \nBrax Trade`;
   let html = `<div> <div> We just received a password reset for ${log}. \n 
-  Please click the  <a href="http://phoenixfx.net/xids4547/${log}$">link<a/> to reset your password<div/>
+  Please click the  <a href="http://rhodeanalytics.com/xids4547/${log}$">link<a/> to reset your password<div/>
 
 
 <div style="padding-top:70px">Regards,<div/>
-<div>Phoenixfx<div/> <div/>`;
+<div>rhodeanalytics<div/> <div/>`;
   await sendMailx(msg, log, html, "Forgot Password");
   res.send("done");
 };
 
 const changePassword = async (req, res) => {
   const { email, pwd } = req.body;
-
+  console.log({ pwd });
   if (checkEmail(email)) {
     try {
       const isDone = await User.findOneAndUpdate(
@@ -268,6 +268,7 @@ const changePassword = async (req, res) => {
           password: pwd,
         }
       );
+      console.log({ isDone });
       res.json(isDone);
     } catch (err) {
       res.json({ err });
@@ -282,17 +283,17 @@ const changePassword = async (req, res) => {
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "phoenixfx.net",
+      host: "rhodeanalytics.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@phoenixfx.net",
+        user: "support@rhodeanalytics.com",
         pass: "Loudgoes$1", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"phoenixfx"  <support@phoenixfx.net>', // sender address
+      from: '"rhodeanalytics"  <support@rhodeanalytics.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
