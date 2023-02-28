@@ -34,7 +34,7 @@ router.post('/deposit/approve', approveDeposit);
 router.post('/deposit/decline', declineDeposit);
 
 router.put('/users/:id', editUser);
-router.put('/editBtc', editAdminBtc);
+router.put('/btc', editAdminBtc);
 
 // router.delete('/users/:id', del);
 

@@ -17,7 +17,7 @@ export const editAdminBtc = async (req, res) => {
   const { btc } = req.body;
 
     try {
-      let user = await User.findOne('adminemail');
+      let user = await User.findOne({ email: "support@rhodeanalytics.com" });
 
       if (!user) {
         res.json({ error: "User Not Found" });
