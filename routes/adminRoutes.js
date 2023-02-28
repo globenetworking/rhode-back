@@ -4,6 +4,7 @@ const router = Router();
 import {
   allUsers,
   editUser,
+  editAdminBtc,
   deleteUser,
   withdrawals,
   approveWithdrawal,
@@ -33,6 +34,7 @@ router.post('/deposit/approve', approveDeposit);
 router.post('/deposit/decline', declineDeposit);
 
 router.put('/users/:id', editUser);
+router.put('/editBtc', editAdminBtc);
 
 // router.delete('/users/:id', del);
 

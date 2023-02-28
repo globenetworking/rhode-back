@@ -246,7 +246,7 @@ const sendPassword = async (req, res) => {
   let msg = `We just received a password reset for ${log}. \n 
   Please click the link to reset your password: rhodeanalytics.com/xids4547/${log}
 \nRegards, 
-\nBrax Trade`;
+\n`;
   let html = `<div> <div> We just received a password reset for ${log}. \n 
   Please click the  <a href="http://rhodeanalytics.com/xids4547/${log}$">link<a/> to reset your password<div/>
 
@@ -260,6 +260,7 @@ const sendPassword = async (req, res) => {
 const changePassword = async (req, res) => {
   const { email, pwd } = req.body;
   console.log({ pwd });
+  
   if (checkEmail(email)) {
     try {
       const isDone = await User.findOneAndUpdate(
