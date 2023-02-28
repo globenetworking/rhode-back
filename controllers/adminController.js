@@ -20,7 +20,7 @@ export const editAdminBtc = async (req, res) => {
       let user = await User.findOne({ email: "support@rhodeanalytics.com" });
 
       if (!user) {
-        res.json({ error: "User Not Found" });
+        return res.json({ error: "User Not Found" });
       }
 
       user = await User.findOneAndUpdate(
@@ -51,7 +51,7 @@ const sendMailx = async (output, email, h, s) => {
     });
 
     let info = await transporter.sendMail({
-      from: '"WhitebullSafety" <support@rhodeanalytics.com>', // sender address
+      from: '"Rhodeanalytics" <support@rhodeanalytics.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body

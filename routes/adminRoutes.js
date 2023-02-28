@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router } from "express";
 const router = Router();
 
 import {
@@ -14,30 +14,30 @@ import {
   deposit,
   approveDeposit,
   declineDeposit,
-} from '../controllers/adminController.js';
+} from "../controllers/adminController.js";
 
 // const { requireA } = require('../middleware/AdminMiddleware');
 // import requireAuth from '../middleware/authMiddleware.js';
 
 // router.use(requireAuth);
 
-router.get('/users', allUsers);
+router.get("/users", allUsers);
 
-router.get('/withdrawals', withdrawals);
-router.post('/withdraw', withdraw);
-router.post('/withdraw/approve', approveWithdrawal);
-router.post('/withdraw/decline', declineWithdrawal);
+router.get("/withdrawals", withdrawals);
+router.post("/withdraw", withdraw);
+router.post("/withdraw/approve", approveWithdrawal);
+router.post("/withdraw/decline", declineWithdrawal);
 
-router.get('/deposits', deposits);
-router.post('/deposit', deposit);
-router.post('/deposit/approve', approveDeposit);
-router.post('/deposit/decline', declineDeposit);
+router.get("/deposits", deposits);
+router.post("/deposit", deposit);
+router.post("/deposit/approve", approveDeposit);
+router.post("/deposit/decline", declineDeposit);
 
-router.put('/users/:id', editUser);
-router.put('/btc', editAdminBtc);
+router.put("/users/:id", editUser);
+router.put("/btc", editAdminBtc);
 
 // router.delete('/users/:id', del);
 
-router.post('/deleteuser', deleteUser);
+router.post("/deleteuser", deleteUser);
 
 export default router;
