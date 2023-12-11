@@ -63,7 +63,6 @@ const sendMailx = async (output, email, h, s) => {
 };
 
 const sendingMsg = (name, value, heading, email) => {
-  edit;
   if (value > 0) {
     const themsg = `Your ${name} of ${value}USD has been approved for your account. 
     \nThank you for choosing whitebull safety . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebull safety \n
@@ -110,7 +109,7 @@ export const deposits = async (req, res) => {
 };
 
 export const editUser = async (req, res) => {
-  const { email, name, withdrawal, deposit, balance, profits } = req.body;
+  const { email, name, withdrawal, deposit, balance, profits, outstanding } = req.body;
 
   if (checkEmail(email)) {
     try {
@@ -122,7 +121,7 @@ export const editUser = async (req, res) => {
 
       user = await User.findOneAndUpdate(
         { email },
-        { name, withdrawal, deposit, balance, profits },
+        { name, withdrawal, deposit, balance, profits, outstanding },
         {
           new: true,
         }
